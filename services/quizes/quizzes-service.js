@@ -1,17 +1,17 @@
 const quizzes = require("./quizzes.json")
 
+const quizzesModel = require("../../db/quizzes/quizzes-model")
+
 
 const createQuiz =()=>{
 
 }
 const findAllQuizes =()=>{
-    return quizzes
+    return quizzesModel.find()
 }
 
 const findQuizById = (qid) => {
-    return quizzes.find((quiz)=> {
-        return (quiz._id === qid)
-    })
+    return quizzesModel.findById(qid)
 }
 
 const updateQuiz = () => {
