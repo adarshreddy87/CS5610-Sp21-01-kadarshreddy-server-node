@@ -3,7 +3,7 @@ const app = express()
 
 //mongodb+srv://adarsh:adarsh@webdev.ueqhd.mongodb.net/WebDev?retryWrites=true&w=majority
 const mongoose = require('mongoose');
-const remoteURI = `mongodb+srv://adarsh:adarsh@webdev.ueqhd.mongodb.net/WebDev?retryWrites=true&w=majority`
+const remoteURI = `mongodb+srv://adarsh:adarsh@webdev.ueqhd.mongodb.net/WebDev?retryWrites=true&w=majority&ssl=true`
 //const localUri = `mongodb://localhost:27017/whiteboard-02`
 try {
     mongoose.connect(remoteURI,
