@@ -5,20 +5,17 @@ const scoreQuiz = (questions) => {
     questions.forEach(question => question.answer === question.correct ?
         numberOfCorrectQuestions++ : numberOfCorrectQuestions);
     return 100 * (numberOfCorrectQuestions / questions.length );
-
-// let numberOfCorrectQuestions = 0;
-    // Object.keys(questions).forEach(function (){
-    //     if(questions.answer === questions.correct){
-    //     numberOfCorrectQuestions++;
-    //     }
-    //
-    // });
-    // return 100 * numberOfCorrectQuestions / questions.length ;
 }
 
 const findAttemptsForQuiz = (qzid) =>
-    quizAttemptsModel.find({quiz: qzid}).populate('quiz', 'title _id')
-const createAttempt = (qid, attempt) =>
-    quizAttemptsModel.create({ quiz: qid, answers: attempt, score: scoreQuiz(attempt) })
+{
+    return quizAttemptsModel.find({quiz: qzid}).populate('quiz', 'title_id')
+}
+const createAttempt = (qid, attempt) =>{
+    console.log("ho")
+    return quizAttemptsModel.create({ quiz: qid, answers: attempt, score: scoreQuiz(attempt)})
+
+}
+     // return quizAttemptsModel.find({quiz: qid})
 
 module.exports = { createAttempt, findAttemptsForQuiz }

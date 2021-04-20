@@ -4,14 +4,18 @@ module.exports = (app) => {
     const createAttempt = (req, res) => {
         const qid = req.params['qid'];
         const attempt = req.body;
-        console.log(attempt)
         quizAttemptDao.createAttempt(qid, attempt)
-            .then(r => res.send(r));
+           .then( result => { res.json(result)
+           console.log(result)}
+           )
+        // res.json(hi)
+
+
     }
 
     const findAttemptsForQuiz = (req, res) => {
         const qid = req.params['qid'];
-        quizAttemptDao.findAttemptsForQuiz(qid)
+         quizAttemptDao.findAttemptsForQuiz(qid)
             .then(attempts => res.send(attempts));
     }
 
